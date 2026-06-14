@@ -84,26 +84,31 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Render project cards ---
   const grid = document.getElementById('projectsGrid');
 
+  // Each card gets explicit grid placement for the "All" view
   const allOrder = [
-    { ...projects[0], size: 'card-large' },
-    { ...projects[3], size: '' },
-    { ...projects[2], size: '' },
-    { ...projects[1], size: 'card-full' },
-    { ...projects[4], size: '' },
-    { ...projects[5], size: 'card-large' },
-    { ...projects[6], size: '' },
-    { ...projects[7], size: 'card-full' },
-    { ...projects[8], size: '', tech: true },
-    { ...projects[9], size: '', tech: true },
-    { ...projects[10], size: '', tech: true },
-    { ...projects[11], size: 'card-full' },
+    { ...projects[0], g: { gridColumn: '1', gridRow: '1 / 3' } },           // 1: Reception (tall left)
+    { ...projects[3], g: { gridColumn: '2 / 4', gridRow: '1' } },           // 2: Wabi-Sabi (top right)
+    { ...projects[2], g: { gridColumn: '2 / 4', gridRow: '2' } },           // 3: Modern Minimal (bottom right)
+    { ...projects[1], g: { gridColumn: '1 / -1', gridRow: '3' } },          // 4: Scandinavian (full-width)
+    { ...projects[4], g: { gridColumn: '1 / 3', gridRow: '4 / 5' } },               // 5: Complex Building (top right)
+    { ...projects[5], g: { gridColumn: '3', gridRow: '4 / 6' } },               // 6: Residential (tall right)
+    { ...projects[6], g: { gridColumn: '1 / 3', gridRow: '5 / 6' } },           // 7: Nubian Hotel (bottom right) 
+    { ...projects[7], g: { gridColumn: '1 / -1', gridRow: '6' } },          // 8: Administration (full-width)
+    { ...projects[8], g: { gridColumn: '1', gridRow: 'auto' }, tech: true }, // 9: Interior Shop Drawings
+    { ...projects[9], g: { gridColumn: '2', gridRow: 'auto' }, tech: true }, // 10: Technical Drawings
+    { ...projects[10], g: { gridColumn: '3', gridRow: 'auto' }, tech: true },// 11: Working Drawings
+    { ...projects[11], g: { gridColumn: '1 / -1', gridRow: '8' } },         // 12: Al-Moez (full-width)
   ];
 
-  function makeCard(project, sizeClass) {
+  function makeCard(project) {
     const card = document.createElement('div');
-    card.className = `project-card${sizeClass} reveal`;
+    card.className = 'project-card reveal';
     card.style.opacity = '0';
     card.style.transform = 'translateY(40px)';
+    // Apply explicit grid placement
+    if (project.g) {
+      Object.assign(card.style, project.g);
+    }
     card.innerHTML = `
       <a href="${project.behance}" target="_blank" rel="noopener noreferrer">
         <img src="${project.cover}" alt="${project.title}" loading="lazy" />
@@ -121,8 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
     grid.innerHTML = '';
 
     const isAll = filter === 'all';
-    grid.classList.toggle('filtered-view', !isAll);
-
     const visible = isAll
       ? allOrder
       : projects.filter((p) => p.category === filter);
@@ -130,10 +133,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let animDelay = 0;
 
     if (isAll) {
+      // Render non-tech cards
       visible.forEach((project) => {
         if (project.tech) return;
-        const sizeClass = project.size ? ` ${project.size}` : '';
-        const card = makeCard(project, sizeClass);
+        const card = makeCard(project);
         grid.appendChild(card);
         gsap.to(card, {
           opacity: 1, y: 0, duration: 0.6,
@@ -142,11 +145,11 @@ document.addEventListener('DOMContentLoaded', () => {
         animDelay++;
       });
 
+      // Tech row wrapper
       const techRow = document.createElement('div');
       techRow.className = 'tech-row';
-      const techCards = visible.filter((p) => p.tech);
-      techCards.forEach((project) => {
-        const card = makeCard(project, '');
+      visible.filter((p) => p.tech).forEach((project) => {
+        const card = makeCard(project);
         techRow.appendChild(card);
         gsap.to(card, {
           opacity: 1, y: 0, duration: 0.6,
@@ -158,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     } else {
       visible.forEach((project, i) => {
-        const card = makeCard(project, '');
+        const card = makeCard(project);
         grid.appendChild(card);
         gsap.to(card, {
           opacity: 1, y: 0, duration: 0.6,
