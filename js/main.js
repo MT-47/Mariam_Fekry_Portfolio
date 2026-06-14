@@ -87,9 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Each card gets explicit grid placement for the "All" view
   const allOrder = [
     { ...projects[0], g: { gridColumn: '1', gridRow: '1 / 3' } },           // 1: Reception (tall left)
-    { ...projects[3], g: { gridColumn: '2 / 4', gridRow: '1' } },           // 2: Wabi-Sabi (top right)
+    { ...projects[1], g: { gridColumn: '2 / 4', gridRow: '1' } },           // 2: Scandinavian (full-width)
     { ...projects[2], g: { gridColumn: '2 / 4', gridRow: '2' } },           // 3: Modern Minimal (bottom right)
-    { ...projects[1], g: { gridColumn: '1 / -1', gridRow: '3' } },          // 4: Scandinavian (full-width)
+    { ...projects[3], g: { gridColumn: '1 / -1', gridRow: '3' } },          // 4:  Wabi-Sabi (top right)
     { ...projects[4], g: { gridColumn: '1 / 3', gridRow: '4 / 5' } },               // 5: Complex Building (top right)
     { ...projects[5], g: { gridColumn: '3', gridRow: '4 / 6' } },               // 6: Residential (tall right)
     { ...projects[6], g: { gridColumn: '1 / 3', gridRow: '5 / 6' } },           // 7: Nubian Hotel (bottom right) 
