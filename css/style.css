@@ -485,18 +485,6 @@ button {
   transform: translateY(0);
 }
 
-/* Filtered view fallback (non-"All" filters) */
-.projects-grid.filtered-view {
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  grid-auto-rows: 260px;
-}
-
-.projects-grid.filtered-view .project-card {
-  grid-column: auto;
-  grid-row: auto;
-  height: auto;
-}
-
 /* --- Skills --- */
 #skills {
   max-width: 900px;

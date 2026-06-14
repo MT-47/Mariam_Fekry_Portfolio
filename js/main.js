@@ -122,6 +122,30 @@ document.addEventListener('DOMContentLoaded', () => {
     return card;
   }
 
+  // Category-specific grid layouts for filtered views
+  const categoryLayouts = {
+    interior: [
+      { gridColumn: '1 / -1', gridRow: '1' },
+      { gridColumn: '1',      gridRow: '2' },
+      { gridColumn: '2',      gridRow: '2' },
+      { gridColumn: '3',      gridRow: '2' },
+    ],
+    architecture: [
+      { gridColumn: '1',      gridRow: '1' },
+      { gridColumn: '2 / -1', gridRow: '1 / 3' },
+      { gridColumn: '1',      gridRow: '2' },
+    ],
+    technical: [
+      { gridColumn: '1 / -1', gridRow: '1' },
+      { gridColumn: '1',      gridRow: '2' },
+      { gridColumn: '2',      gridRow: '2' },
+      { gridColumn: '3',      gridRow: '2' },
+    ],
+    urban: [
+      { gridColumn: '1 / -1', gridRow: '1',},
+    ],
+  };
+
   function renderProjects(filter = 'all') {
     grid.innerHTML = '';
 
@@ -160,8 +184,16 @@ document.addEventListener('DOMContentLoaded', () => {
       grid.appendChild(techRow);
 
     } else {
+      // Filtered view: apply category-specific grid layout
+      const layout = categoryLayouts[filter] || [];
       visible.forEach((project, i) => {
         const card = makeCard(project);
+        // Apply grid placement from layout definition
+        if (layout[i]) {
+          const { height, ...gridPos } = layout[i];
+          Object.assign(card.style, gridPos);
+          if (height) card.style.height = height;
+        }
         grid.appendChild(card);
         gsap.to(card, {
           opacity: 1, y: 0, duration: 0.6,
