@@ -94,9 +94,9 @@ document.addEventListener('DOMContentLoaded', () => {
     { ...projects[5], g: { gridColumn: '3', gridRow: '4 / 6' } },               // 6: Residential (tall right)
     { ...projects[6], g: { gridColumn: '1 / 3', gridRow: '5 / 6' } },           // 7: Nubian Hotel (bottom right) 
     { ...projects[7], g: { gridColumn: '1 / -1', gridRow: '6' } },          // 8: Administration (full-width)
-    { ...projects[8], g: { gridColumn: '1', gridRow: 'auto' }, tech: true }, // 9: Interior Shop Drawings
-    { ...projects[9], g: { gridColumn: '2', gridRow: 'auto' }, tech: true }, // 10: Technical Drawings
-    { ...projects[10], g: { gridColumn: '3', gridRow: 'auto' }, tech: true },// 11: Working Drawings
+    { ...projects[8], g: { gridColumn: '1', gridRow: '7' }}, // 9: Interior Shop Drawings
+    { ...projects[9], g: { gridColumn: '2', gridRow: '7' }}, // 10: Technical Drawings
+    { ...projects[10], g: { gridColumn: '3', gridRow: '7' }},// 11: Working Drawings
     { ...projects[11], g: { gridColumn: '1 / -1', gridRow: '8' } },         // 12: Al-Moez (full-width)
   ];
 
