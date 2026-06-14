@@ -108,11 +108,12 @@ button {
   justify-content: space-between;
   padding: 0 3rem;
   z-index: 1000;
+  background: linear-gradient(180deg, rgba(42, 31, 21, 0.4) 0%, transparent 100%);
   transition: background var(--transition), box-shadow var(--transition), height var(--transition);
 }
 
 #navbar.scrolled {
-  background: rgba(212, 196, 176, 0.85);
+  background: rgba(212, 196, 176, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 1px 20px rgba(42, 31, 21, 0.08);
@@ -146,9 +147,13 @@ button {
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--dark);
+  color: var(--white);
   position: relative;
   transition: color var(--transition);
+}
+
+#navbar.scrolled .nav-links a {
+  color: var(--dark);
 }
 
 .nav-links a::after {
@@ -171,7 +176,6 @@ button {
 .nav-links a.active::after {
   width: 100%;
 }
-
 /* --- Hero --- */
 #hero {
   position: relative;
