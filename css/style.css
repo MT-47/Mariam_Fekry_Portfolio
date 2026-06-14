@@ -495,33 +495,35 @@ button {
   align-items: center;
   text-align: center;
   padding: 2rem 1.5rem;
-  border: 1px solid rgba(42, 31, 21, 0.08);
-  background: var(--white);
+  border: none;
+  background: transparent;
   transition: all var(--transition);
 }
 
 .contact-item:hover {
-  border-color: var(--accent);
+  border-color: transparent;
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(42, 31, 21, 0.08);
+  box-shadow: none;
 }
 
 .contact-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
-  background: var(--bg);
+  background: var(--white);
   color: var(--accent);
   margin-bottom: 1rem;
   transition: all var(--transition);
+  cursor: pointer;
 }
 
-.contact-item:hover .contact-icon {
+.contact-icon:hover {
   background: var(--accent);
   color: var(--white);
+  transform: translateY(-3px);
 }
 
 .contact-label {
