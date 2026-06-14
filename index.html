@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mariam Fekry — Architect & Interior Designer</title>
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">
+      <img src="images/logo.png" alt="Mariam Fekry Designs" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section id="hero">
+    <video autoplay muted loop playsinline>
+      <source src="images/hero.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Junior Architect & Interior Designer</p>
+      <h1 class="hero-name">Mariam Fekry</h1>
+      <p class="hero-tagline">Designing spaces that breathe.</p>
+      <a href="#projects" class="hero-cta">View Work</a>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="about-content reveal">
+      <span class="section-label">About</span>
+      <h2>Architecture is the art of how to waste space.</h2>
+      <p>
+        Architectural Engineer and Junior Architect based in Zagazig, Egypt.
+        Passionate about architectural planning, interior design, and bringing
+        spaces to life through careful design and technical precision.
+      </p>
+      <a href="images/Mariam_Fekry_CV.pdf" class="btn-cv" download>
+        Download CV
+      </a>
+    </div>
+    <div class="about-image reveal">
+      <img src="images/mariam.png" alt="Mariam Fekry" />
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects">
+    <div class="section-header reveal">
+      <span class="section-label">Projects</span>
+      <h2>Selected Work</h2>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="filter-tabs reveal">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="interior">Interior</button>
+      <button class="filter-btn" data-filter="architecture">Architecture</button>
+      <button class="filter-btn" data-filter="technical">Technical</button>
+      <button class="filter-btn" data-filter="urban">Urban</button>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-grid" id="projectsGrid">
+      <!-- Cards injected by JS -->
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills">
+    <div class="section-header reveal">
+      <span class="section-label">Skills</span>
+      <h2>Tools & Expertise</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-item">Autodesk Revit</div>
+      <div class="skill-item">AutoCAD</div>
+      <div class="skill-item">3ds Max</div>
+      <div class="skill-item">V-Ray</div>
+      <div class="skill-item">Corona Renderer</div>
+      <div class="skill-item">Enscape</div>
+      <div class="skill-item">Adobe Photoshop</div>
+      <div class="skill-item">Microsoft Office</div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <div class="section-header reveal">
+      <span class="section-label">Contact</span>
+      <h2>Let's Work Together</h2>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:mariamfekri4@gmail.com" class="contact-item">
+        <div class="contact-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </div>
+        <span class="contact-label">Email</span>
+        <span class="contact-value">mariamfekri4@gmail.com</span>
+      </a>
+      <a href="https://www.linkedin.com/in/mariam-fekry-810962250/" target="_blank" rel="noopener noreferrer" class="contact-item">
+        <div class="contact-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </div>
+        <span class="contact-label">LinkedIn</span>
+        <span class="contact-value">mariam-fekry</span>
+      </a>
+      <a href="https://www.behance.net/mariamfekry22" target="_blank" rel="noopener noreferrer" class="contact-item">
+        <div class="contact-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V6h4.5a3.5 3.5 0 0 1 0 7H3"/><path d="M3 12.5h5a3.75 3.75 0 0 1 0 7.5H15"/><path d="M14 18V6h4.5a3.5 3.5 0 0 1 0 7H14"/><path d="M14 12.5h5a3.75 3.75 0 0 1 0 7.5H14"/></svg>
+        </div>
+        <span class="contact-label">Behance</span>
+        <span class="contact-value">mariamfekry</span>
+      </a>
+      <a href="https://instagram.com/mariamdesiign" target="_blank" rel="noopener noreferrer" class="contact-item">
+        <div class="contact-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <span class="contact-label">Instagram</span>
+        <span class="contact-value">@mariamfekry</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <p>&copy; 2026 Mariam Fekry. All rights reserved.</p>
+  </footer>
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
+  <!-- App -->
+  <script src="js/projects.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
