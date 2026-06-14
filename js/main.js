@@ -84,37 +84,88 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Render project cards ---
   const grid = document.getElementById('projectsGrid');
 
+  const allOrder = [
+    { ...projects[0], size: 'card-large' },
+    { ...projects[3], size: '' },
+    { ...projects[2], size: '' },
+    { ...projects[1], size: 'card-full' },
+    { ...projects[4], size: '' },
+    { ...projects[5], size: 'card-large' },
+    { ...projects[6], size: '' },
+    { ...projects[7], size: 'card-full' },
+    { ...projects[8], size: '', tech: true },
+    { ...projects[9], size: '', tech: true },
+    { ...projects[10], size: '', tech: true },
+    { ...projects[11], size: 'card-full' },
+  ];
+
+  function makeCard(project, sizeClass) {
+    const card = document.createElement('div');
+    card.className = `project-card${sizeClass} reveal`;
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(40px)';
+    card.innerHTML = `
+      <a href="${project.behance}" target="_blank" rel="noopener noreferrer">
+        <img src="${project.cover}" alt="${project.title}" loading="lazy" />
+        <div class="project-card-overlay">
+          <div class="overlay-line"></div>
+          <h3>${project.title}</h3>
+          <span class="overlay-category">${project.category}</span>
+        </div>
+      </a>
+    `;
+    return card;
+  }
+
   function renderProjects(filter = 'all') {
     grid.innerHTML = '';
-    const visible = filter === 'all'
-      ? projects
+
+    const isAll = filter === 'all';
+    grid.classList.toggle('filtered-view', !isAll);
+
+    const visible = isAll
+      ? allOrder
       : projects.filter((p) => p.category === filter);
 
-    visible.forEach((project, i) => {
-      const card = document.createElement('div');
-      card.className = 'project-card reveal';
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(40px)';
-      card.innerHTML = `
-        <a href="${project.behance}" target="_blank" rel="noopener noreferrer">
-          <img src="${project.cover}" alt="${project.title}" loading="lazy" />
-          <div class="project-card-overlay">
-            <h3>${project.title}</h3>
-            <span>${project.category}</span>
-          </div>
-        </a>
-      `;
-      grid.appendChild(card);
+    let animDelay = 0;
 
-      // stagger entrance
-      gsap.to(card, {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        delay: i * 0.1,
-        ease: 'power3.out',
+    if (isAll) {
+      visible.forEach((project) => {
+        if (project.tech) return;
+        const sizeClass = project.size ? ` ${project.size}` : '';
+        const card = makeCard(project, sizeClass);
+        grid.appendChild(card);
+        gsap.to(card, {
+          opacity: 1, y: 0, duration: 0.6,
+          delay: animDelay * 0.08, ease: 'power3.out',
+        });
+        animDelay++;
       });
-    });
+
+      const techRow = document.createElement('div');
+      techRow.className = 'tech-row';
+      const techCards = visible.filter((p) => p.tech);
+      techCards.forEach((project) => {
+        const card = makeCard(project, '');
+        techRow.appendChild(card);
+        gsap.to(card, {
+          opacity: 1, y: 0, duration: 0.6,
+          delay: animDelay * 0.08, ease: 'power3.out',
+        });
+        animDelay++;
+      });
+      grid.appendChild(techRow);
+
+    } else {
+      visible.forEach((project, i) => {
+        const card = makeCard(project, '');
+        grid.appendChild(card);
+        gsap.to(card, {
+          opacity: 1, y: 0, duration: 0.6,
+          delay: i * 0.08, ease: 'power3.out',
+        });
+      });
+    }
   }
 
   renderProjects();
